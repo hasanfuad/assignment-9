@@ -5,6 +5,23 @@ import './Login.css'
 const Login = () => {
     const handleSubmitForm = (e) => {
             console.log(e.target.name, e.target.value);
+            let isValid = true;
+
+            if(e.target.name === 'email'){
+                const validMail = /\S+@\S+\.\S+/.test(e.target.value);
+                isValid = validMail;
+            }
+
+            if(e.target.name === 'password'){
+                const validLength = e.target.value.length > 6;
+                const validPass = /\d{1}/.test(e.target.value);
+                
+                isValid = validLength && validPass;
+            }
+
+            if(isValid){
+                console.log("Successfully logged in");
+            }
     }
 
     const styles = {
