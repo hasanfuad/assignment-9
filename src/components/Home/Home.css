@@ -1,0 +1,56 @@
+
+
+.row{
+    text-align: center;
+    position: relative;
+    top: 16rem;
+    left: 2rem;
+}
+
+.bike {
+    background-color: aliceblue;
+    padding: 50px;
+    margin-right: 40px;
+    border-radius: 6px;
+    position: relative;
+    left: 12rem;
+
+}
+.bus {
+    background-color: aliceblue;
+    padding: 50px;
+    margin-right: 40px;
+    border-radius: 6px;
+    position: relative;
+    left: 12rem;
+}
+.car {
+    background-color: aliceblue;
+    padding: 50px;
+    margin-right: 40px;
+    border-radius: 6px;
+    position: relative;
+    left: 12rem;
+}
+.train {
+    background-color: aliceblue;
+    padding: 50px;
+    margin-right: 40px;
+    border-radius: 6px;
+    position: relative;
+    left: 12rem;
+}
+
+.bike img{
+    width: 150px;
+}
+.bus img{
+    width: 150px;
+}
+.car img{
+    width: 150px;
+}
+.train img{
+    width: 150px;
+}
+
