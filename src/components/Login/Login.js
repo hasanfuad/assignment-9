@@ -7,12 +7,20 @@ import * as firebase from "firebase";
 import "firebase/auth";
 
 import firebaseConfig from "./firebaseConfig";
+import Header from "../../Header/Header";
+import { useContext } from "react";
+import { UserContext } from "../../App";
+import { useHistory, useLocation } from "react-router";
 
 if (firebase.apps.length === 0) {
   firebase.initializeApp(firebaseConfig);
 }
 
 const Login = () => {
+
+  const [loggedInUser, setLoggedInUser] = useContext(UserContext);
+
+
   const [newUser, setNewUser] = useState(false);
   const [user, setUser] = useState({
     isLoggedIn: false,
@@ -23,6 +31,11 @@ const Login = () => {
     password: "",
   });
 
+  const history = useHistory();
+  const location = useLocation();
+
+  const {from} = location.state || {from: {pathname: "/"}};
+
   // Google validation
 
   const provider = new firebase.auth.GoogleAuthProvider();
@@ -31,8 +44,15 @@ const Login = () => {
       .auth()
       .signInWithPopup(provider)
       .then((result) => {
-        const user = result.user;
+        const {displayName, email} = result.user;
         console.log(user);
+        const userInfo = {
+          name:displayName,
+          email
+        }
+        console.log(userInfo);
+        setLoggedInUser(userInfo);
+        history.replace(from);
       })
       .catch((error) => {
         const errorCode = error.code;
@@ -73,6 +93,9 @@ const Login = () => {
           const newUserInfo = { ...user };
           newUserInfo.success = "New user successfully created.";
           setUser(newUserInfo);
+          setLoggedInUser(newUserInfo);
+          console.log(newUserInfo);
+          history.replace(from);
         })
         .catch((error) => {
           const newUserInfo = { ...user };
@@ -89,12 +112,16 @@ const Login = () => {
           const newUserInfo = { ...user };
           newUserInfo.success = "New user successfully login!";
           setUser(newUserInfo);
+          setLoggedInUser(newUserInfo);
+          console.log(newUserInfo);
+          history.replace(from);
+          updateUserName(newUserInfo.name);
         })
         .catch((error) => {
           const newUserInfo = { ...user };
           newUserInfo.error = error.message;
           setUser(newUserInfo);
-          updateUserName(user.name);
+          updateUserName(newUserInfo.name);
         });
     }
 
@@ -121,6 +148,7 @@ const Login = () => {
   };
   return (
     <div>
+      <Header/>
       {user.success ? (
         <p style={{backgroundColor: "gray", color: "green", textAlign: "center"}}>{user.success}</p>
       ) : (

@@ -24,8 +24,7 @@ const Header = () => {
             <Link className="style-link" to="/contact">
               Contact
             </Link>
-            <Link className="style-link bg-warning p-3 rounded" to="/login">
-              Login
+            <Link className="style-link bg-warning p-3 rounded" to="/login">Login
             </Link>
           </Nav>
         </Container>
