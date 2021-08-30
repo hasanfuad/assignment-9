@@ -215,7 +215,7 @@ const Login = () => {
             {!newUser ? "Create an account" : "Already an account ?"}
           </p>
           <br />
-          <button onClick={googleBtn}>Sign in with google</button>
+          <button className="input-btn rounded btn-success form-btn my-1" onClick={googleBtn}>Sign in with google</button>
         </form>
       </div>
     </div>

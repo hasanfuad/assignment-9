@@ -10,7 +10,7 @@ const Header = () => {
     <div>
       <Navbar mx-5 >
         <Container>
-          <Navbar.Brand href="#home"><img style={{width: '200px'}} src={logo} alt={logo}/></Navbar.Brand>
+          <Navbar.Brand href="#home"><img style={{width: '500px'}} src={logo} alt={logo}/></Navbar.Brand>
           <Nav className="">
             <Link className="style-link" to="/home">
               Home

@@ -1,11 +1,13 @@
-import React from 'react';
+import React from "react";
+import Header from "../../Header/Header";
 
 const Contact = () => {
-    return (
-        <div>
-            <h1>This is Contact</h1>
-        </div>
-    );
+  return (
+    <div>
+      <Header />
+      <h1 style={{ textAlign: "center" }}>Contact is constructing..</h1>
+    </div>
+  );
 };
 
 export default Contact;

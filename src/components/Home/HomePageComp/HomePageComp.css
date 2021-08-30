@@ -1,0 +1,11 @@
+.description-image{
+    margin: 60px;
+    padding: 30px;
+    width: 200px;
+    height: 200px;
+}
+
+.description-image img{
+    width: 200px;
+    margin-left: -25px;
+}
